@@ -35,5 +35,7 @@ export class LogsComponent implements OnInit {
   }
   onDelete(log:Log){
     this.logService.deleteLog(log);
+    this.selectedLog = { id: null, text: null, date: null }
+    this.logService.clearState();
   }
 }

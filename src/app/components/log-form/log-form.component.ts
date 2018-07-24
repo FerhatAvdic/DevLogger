@@ -28,7 +28,17 @@ export class LogFormComponent implements OnInit {
         this.formInput.text = log.text;
         this.formInput.date = log.date;
       }
-    })
+    });
+    this.logService.stateClear.subscribe(clear => {
+      if (clear) {
+        this.formInput = {
+          id: null,
+          text: null,
+          date: null
+        }
+        this.isNew = true;
+      }
+    });
   }
 
   onSubmit(){
